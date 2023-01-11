@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private enum MovementState
     {
-        idle, running, jumping, falling
+        idle, running, jumping, falling, attack
     }
 
 
@@ -52,7 +52,11 @@ public class PlayerMovement : MonoBehaviour
         MovementState state;
 
         //Run Control
-        if (rb.velocity.y > .1f)
+        if (Input.GetButton("Fire1"))
+        {
+            state = MovementState.attack;
+        }
+        else if (rb.velocity.y > .1f)
         {
             state = MovementState.jumping;
         }

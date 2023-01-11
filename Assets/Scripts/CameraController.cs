@@ -17,11 +17,11 @@ public class CameraController : MonoBehaviour
     {
         if (player.position.x > -2.31f)
         {
-            transform.position = new Vector3(player.position.x,player.position.y,transform.position.z);
+            transform.position = new Vector3(player.position.x,player.position.y + 2.46f,transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(-2.31f, player.position.y, transform.position.z);
+            transform.position = new Vector3(-2.31f, player.position.y + 2.46f, transform.position.z);
         }
     }
 }
