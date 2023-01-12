@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private float dirX = 0f;
+    [SerializeField] private int jumpCount = 0;
+
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
 
@@ -21,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
         idle, running, jumping, falling, attack
     }
 
+    [SerializeField] private AudioSource runSoundEffect;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource fallSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
 
 
     // Start is called before the first frame update
@@ -41,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpSoundEffect.Play();
         }
 
         // Movement Control and Animation     
@@ -52,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         MovementState state;
 
         //Run Control
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             state = MovementState.attack;
         }
@@ -86,4 +93,5 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded(){
         return Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, .1f,jumpableGround); //ortali ayni boydan dondurulmeden bir tik altta
     }
+
 }
