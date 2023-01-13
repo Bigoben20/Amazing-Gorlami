@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource runSoundEffect;
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource fallSoundEffect;
-    [SerializeField] private AudioSource deathSoundEffect;
 
 
     // Start is called before the first frame update
@@ -43,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {

@@ -8,6 +8,9 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animation;
 
+    [SerializeField] private AudioSource deathSoundEffect;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,6 +23,7 @@ public class PlayerLife : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy")){
             Die();
+            deathSoundEffect.Play();
         }
     }
     private void Die(){
