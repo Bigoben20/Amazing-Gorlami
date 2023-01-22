@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collectable
+  - Cards
+  - Money
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -43,6 +48,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3520916841
+    locked: 0
+  - name: Mid-back
+    uniqueID: 169583649
     locked: 0
   - name: Midground
     uniqueID: 798061893
